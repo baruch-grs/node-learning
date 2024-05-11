@@ -1,11 +1,18 @@
 const { Client } = require("pg");
-const { accessData } = require("./ACCESS_DATA");
 
 /**
  * This code will help us to create a database in node and postgres
  */
 
-const client = new Client(accessData);
+require("dotenv").config();
+
+const client = new Client({
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT,
+});
 
 client.connect((error) => {
   if (error) throw error;
