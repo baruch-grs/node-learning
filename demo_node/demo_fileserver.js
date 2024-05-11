@@ -2,7 +2,7 @@ const { URL } = require("url");
 const fs = require("fs");
 const http = require("http");
 /**
- * This exercise makes us to create a server that responds to a different html files depending on the url indicated in the browser
+ * This exercise makes us to create a server that responds to a different html files depending on the url path indicated in the browser
  */
 const server = http.createServer();
 const PORT = 8080;
