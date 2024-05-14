@@ -14,8 +14,7 @@ const client = new Client({
   port: process.env.DB_PORT,
 });
 
-let sqlQuery =
-  "ALTER TABLE customers ADD COLUMN id INT_AUTO_INCREMENT PRIMARY KEY"; // This will create a new column called 'id' in our table. With the id being the primary key and the autoincrement property so it can have a different numerical values
+let sqlQuery = "ALTER TABLE customers ADD COLUMN id SERIAL PRIMARY KEY"; // This will create a new column called 'id' in our table. With the id being the primary key and the autoincrement property so it can have a different numerical values
 client.connect((error) => {
   if (error) throw error;
   console.log("Connected");
