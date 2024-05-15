@@ -36,6 +36,7 @@ console.log(formattedString);
 client.connect((error) => {
   if (error) throw error;
   console.log("Succesful connection");
+
   client.query(formattedString, (error, result) => {
     if (error) throw error;
     console.log("Insert succesful");
