@@ -28,19 +28,19 @@ const productsData = [
   { id: 156, name: "Vanilla Dreams" },
 ];
 
-const formatJSONArray = (arr) => {
-  return arr.map((item) => {
-    let result = [item.id, item.name];
-    result = item.favorite_product
-      ? [...result, item.favorite_product]
-      : result;
+/**
+ *
+ * @param  arr
+ * @returns Array
+ * This method lets us to format the received array to create a new array that is needed in a specific format to do a bulk insert into database
+ */
 
-    return result;
-  });
+const formatToArray = (arr) => {
+  return arr.map((item) => Object.keys(item).map((key) => item[key]));
 };
 
-const formatedProducts = formatJSONArray(productsData);
-const formatedUserData = formatJSONArray(userData);
+const formatedProducts = formatToArray(productsData);
+const formatedUserData = formatToArray(userData);
 
 const userDataQuery = format(
   "INSERT INTO users (id, name, favorite_product) VALUES %L",
