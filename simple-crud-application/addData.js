@@ -26,7 +26,38 @@ export default async function addData(info) {
         ],
       },
     ]);
+
+    const data = {
+      id: uuidv4(),
+      name: answers.name,
+      phone: answers.phone,
+      age: answers.age,
+    };
+    info.push(data);
+
+    if (fs.existsSync("db.json")) {
+      addDetails(info);
+    } else {
+      fs.appendFile("db.json", "[]", (error) => {
+        if (error) {
+          console.log("Creating file unsuccessful", error);
+        }
+        console.log("db.json file created successfully");
+        addDetails(info);
+      });
+    }
   } catch (error) {
     console.log("Something went wrong", error);
   }
 }
+
+async function addDetails(info) {
+  await fs.writeFile("db.json", JSON.stringify(info), (error) => {
+    if (error) {
+      console.log("Error Writing to the database");
+    }
+    console.log("Data added successfully");
+  });
+}
+
+queryDB(addData);
