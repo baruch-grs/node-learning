@@ -6,4 +6,6 @@ const emailTemplate = `
 
 `;
 
-console.log(emailTemplate);
+module.exports = {
+  emailTemplate,
+};
