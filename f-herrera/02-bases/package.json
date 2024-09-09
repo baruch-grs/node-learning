@@ -11,6 +11,10 @@
   "author": "Baruch Guerra",
   "license": "ISC",
   "devDependencies": {
+    "get-age": "^1.0.1",
     "nodemon": "^3.1.4"
+  },
+  "dependencies": {
+    "uuid": "^10.0.0"
   }
 }
