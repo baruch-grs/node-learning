@@ -7,6 +7,7 @@ const {
   asyncGetPokemonById,
 } = require("./js-foundation/06-promises");
 
+const { buildLogger } = require("./plugins");
 // const { getUserByID } = require("./js-foundation/03-callbacks");
 // const { getUserByID } = require("./js-foundation/04-arrow");
 // import { emailTemplate } from "./js-foundation/01-template";
