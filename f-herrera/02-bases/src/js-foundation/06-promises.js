@@ -31,7 +31,16 @@ const asyncGetPokemonById = async (id) => {
   }
 };
 
+const asyncGetPokemonByIdFactory = (id, httpClientPluginMethod) => {
+  try {
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}/`;
+    return httpClientPluginMethod(url);
+  } catch (error) {
+    console.log(`Error fetching Pokémon: ${error}`);
+  }
+};
 module.exports = {
   getPokemonById,
   asyncGetPokemonById,
+  asyncGetPokemonByIdFactory,
 };
