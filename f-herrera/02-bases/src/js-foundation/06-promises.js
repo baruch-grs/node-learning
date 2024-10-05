@@ -1,5 +1,3 @@
-const { httpClientPlugin } = require("../plugins");
-
 const getPokemonById = (id) => {
   const url = `https://pokeapi.co/api/v2/pokemon/${id}/`;
 

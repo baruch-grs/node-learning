@@ -23,6 +23,9 @@ const { buildLogger } = require("./plugins");
 //   .catch((error) => console.error(`There was an error: ${error}`))
 //   .finally(() => console.log("Finally in async"));
 
+/**
+ * Created async  function to get a pokemon by id using factory functions
+ */
 const pokemonInfo = asyncGetPokemonByIdFactory(4, httpClientPlugin.get);
 
 pokemonInfo.then((data) => console.log(data.name));
@@ -56,3 +59,11 @@ console.log({ john });
 //   }
 //   console.log(user);
 // });
+
+/**
+ * Logger
+ */
+
+const logger = buildLogger("app.js");
+logger.log("hola mundooooooo");
+logger.error("esto es algo malo");
