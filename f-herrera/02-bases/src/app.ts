@@ -1,15 +1,18 @@
 // const { emailTemplate } = require("./js-foundation/01-template");
 // require("./js-foundation/02-destructuring");
-const { getUUID, getAge } = require("./plugins");
-const { httpClientPlugin } = require("./plugins");
-const { buildMakePerson } = require("./js-foundation/05-factory");
-const {
-  getPokemonById,
-  asyncGetPokemonById,
-  asyncGetPokemonByIdFactory,
-} = require("./js-foundation/06-promises");
+// const { getUUID, getAge } = require("./plugins");
+// const { httpClientPlugin } = require("./plugins");
+// const { buildMakePerson } = require("./js-foundation/05-factory");
+// const {
+//   getPokemonById,
+//   asyncGetPokemonById,
+//   asyncGetPokemonByIdFactory,
+// } = require("./js-foundation/06-promises");
 
-const { buildLogger } = require("./plugins");
+import { asyncGetPokemonById } from "./js-foundation/06-promises";
+import { buildLogger } from "./plugins/logger.plugin";
+
+// const { buildLogger } = require("./plugins");
 // const { getUserByID } = require("./js-foundation/03-callbacks");
 // const { getUserByID } = require("./js-foundation/04-arrow");
 // import { emailTemplate } from "./js-foundation/01-template";
@@ -26,26 +29,26 @@ const { buildLogger } = require("./plugins");
 /**
  * Created async  function to get a pokemon by id using factory functions
  */
-const pokemonInfo = asyncGetPokemonByIdFactory(4, httpClientPlugin.get);
+// const pokemonInfo = asyncGetPokemonByIdFactory(4, httpClientPlugin.get);
 
-pokemonInfo.then((data) => console.log(data.name));
+// pokemonInfo.then((data) => console.log(data.name));
 
 /**
  * Referencia  a las factory functions
  */
 // const { buildMakePerson } = require("./js-foundation/05-factory");
 
-const personObject = {
-  name: "John",
-  birthdate: "1995-10-18",
-};
+// const personObject = {
+//   name: "John",
+//   birthdate: "1995-10-18",
+// };
 
-const makePerson = buildMakePerson({ getUUID, getAge });
-// console.log(makePerson);
+// const makePerson = buildMakePerson({ getUUID, getAge });
+// // console.log(makePerson);
 
-const john = makePerson(personObject);
+// const john = makePerson(personObject);
 
-console.log({ john });
+// console.log({ john });
 
 /**
  * Fin de la referencia
@@ -65,5 +68,7 @@ console.log({ john });
  */
 
 const logger = buildLogger("app.js");
-logger.log("hola mundooooooo");
+logger.log("hola mundooooaooo");
 logger.error("esto es algo malo");
+
+asyncGetPokemonById(10).then((pokemon) => console.log(pokemon));
