@@ -19,23 +19,28 @@ import { httpClient } from "../plugins";
 //     .then((pokemon) => pokemon.name);
 // };
 
-const asyncGetPokemonById = async (id: string | number): Promise<string> => {
-  const url = `https://pokeapi.co/api/v2/pokemon/${id}/`;
-
-  const pokemon = await httpClient.get(url);
-
-  return pokemon.name;
-};
-
-const asyncGetPokemonByIdFactory = (
-  id: number | string,
-  httpClientPluginMethod: (url: string) => void
-) => {
+export const asyncGetPokemonById = async (
+  id: string | number
+): Promise<string> => {
   try {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}/`;
-    return httpClientPluginMethod(url);
+
+    const pokemon = await httpClient.get(url);
+
+    return pokemon.name;
   } catch (error) {
-    console.log(`Error fetching Pokémon: ${error}`);
+    throw `Pokemon not found with id ${id}`;
   }
 };
-export { asyncGetPokemonById, asyncGetPokemonByIdFactory };
+
+// const asyncGetPokemonByIdFactory = (
+//   id: number | string,
+//   httpClientPluginMethod: (url: string) => void
+// ) => {
+//   try {
+//     const url = `https://pokeapi.co/api/v2/pokemon/${id}/`;
+//     return httpClientPluginMethod(url);
+//   } catch (error) {
+//     console.log(`Error fetching Pokémon: ${error}`);
+//   }
+// };

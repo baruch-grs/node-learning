@@ -9,8 +9,8 @@
 //   asyncGetPokemonByIdFactory,
 // } = require("./js-foundation/06-promises");
 
-import { asyncGetPokemonById } from "./js-foundation/06-promises";
-import { buildLogger } from "./plugins/logger.plugin";
+// import { asyncGetPokemonById } from "./js-foundation/06-promises";
+// import { buildLogger } from "./plugins/logger.plugin";
 
 // const { buildLogger } = require("./plugins");
 // const { getUserByID } = require("./js-foundation/03-callbacks");
@@ -44,7 +44,7 @@ import { buildLogger } from "./plugins/logger.plugin";
 // };
 
 // const makePerson = buildMakePerson({ getUUID, getAge });
-// // console.log(makePerson);
+// console.log(makePerson);
 
 // const john = makePerson(personObject);
 
@@ -67,8 +67,8 @@ import { buildLogger } from "./plugins/logger.plugin";
  * Logger
  */
 
-const logger = buildLogger("app.js");
-logger.log("hola mundooooaooo");
-logger.error("esto es algo malo");
+// const logger = buildLogger("app.js");
+// logger.log("hola mundooooaooo");
+// logger.error("esto es algo malo");
 
-asyncGetPokemonById(10).then((pokemon) => console.log(pokemon));
+// asyncGetPokemonById(10).then((pokemon) => console.log(pokemon));
