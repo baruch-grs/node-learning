@@ -14,7 +14,6 @@ describe("JS Foundation/06 Promises", () => {
       await asyncGetPokemonById(pokemonId);
       expect(true).toBe(false);
     } catch (error) {
-      console.log(error);
       expect(error).toBe(`Pokemon not found with id ${pokemonId}`);
     }
   });
