@@ -11,5 +11,5 @@ npm install
 2.  Run the program. You will need a mandatory argument to run this program.
 
 ```
-npm run dev -b [number]
+npx ts-node src/app.ts -b [number]
 ```
