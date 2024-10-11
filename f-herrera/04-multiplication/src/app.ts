@@ -1,3 +1,10 @@
 import { yarg } from "./config/plugins/yargs.plugin";
 
-console.log(yarg);
+(async () => {
+  console.log("ejecutado");
+  await main();
+})();
+
+async function main() {
+  console.log(yarg);
+}
