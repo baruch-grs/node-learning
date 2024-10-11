@@ -21,6 +21,18 @@ export const yarg = yargs(process.argv)
     default: false,
     describe: "Show multiplication table",
   })
+  .option("n", {
+    alias: "name",
+    type: "string",
+    default: "multiplication-table",
+    describe: "file name",
+  })
+  .option("d", {
+    alias: "destination",
+    type: "string",
+    default: "outputs",
+    describe: "File destination",
+  })
   .check((argv, options) => {
     if (argv.b < 1) throw "Error: base must be greater than 0";
     return true;
